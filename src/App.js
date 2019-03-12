@@ -1,28 +1,45 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import $ from 'jquery';
 
-class App extends Component {
-  render() {
+import Item from './Item';
+
+const myVar = 'chaussure';
+
+
+// Je defini mon nouveau component
+export default class App extends Component {
+  // Dans la classe je peux decrire les methodes de mon lifecycle
+
+  // AVANT que mon component s'affiche je vais lancer la requete
+  componentWillMount () {
+    $.get('http://localhost:4000/students', function (response) {
+      
+    });
+  }
+
+  // PERMET de mettre à jour mon HTML
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        Hello world !
+        <Item name={myVar}></Item>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
